@@ -1,0 +1,19 @@
+# Environment / secrets
+.env
+
+# Python (in case you run anything outside the container too)
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / pgAdmin storage (mounted volume, not meant to be committed)
+databases/
+
+# OS noise
+.DS_Store
+
+# Datasets. Download the datasets yourselves.
+data/
