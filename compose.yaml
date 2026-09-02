@@ -11,7 +11,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./databases:/var/lib/postgresql/data
+      - ./data:/data-imports
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 30s
@@ -25,6 +26,8 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ./data:/data-imports
     depends_on:
       database:
         condition: service_healthy
@@ -35,7 +38,7 @@ services:
       retries: 5
 
   code-editor:
-    image: jupyter/datascience-notebook:latest
+    build: ./jupyter
     ports:
       - "8888:8888"
     environment:

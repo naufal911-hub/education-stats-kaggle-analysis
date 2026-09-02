@@ -10,7 +10,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data / pgAdmin storage (mounted volume, not meant to be committed)
-databases/
+databases
 
 # OS noise
 .DS_Store
