@@ -10,6 +10,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
+    group_add:
+      - "5050"
     volumes:
       - ./databases:/var/lib/postgresql/data
       - ./data:/data-imports
@@ -26,6 +28,8 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    group_add:
+      - "5050"
     volumes:
       - ./data:/data-imports
     depends_on:
@@ -49,6 +53,8 @@ services:
       - NB_GID=1000
       - CHOWN_HOME=yes
     user: root
+    group_add:
+      - "5050"
     volumes:
       - ./analysis-notebook:/home/jovyan/work
       - ./data:/home/jovyan/work/data
