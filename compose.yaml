@@ -58,7 +58,10 @@ services:
     volumes:
       - ./analysis-notebook:/home/jovyan/work
       - ./data:/home/jovyan/work/data
-    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+    command: 
+        - start-notebook.sh
+        - --NotebookApp.token=
+        - --NotebookApp.password=
     healthcheck:
       test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://localhost:8888')\" || exit 1"]
       interval: 30s
