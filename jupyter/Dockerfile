@@ -1,6 +1,5 @@
 FROM jupyter/datascience-notebook:latest
 
-
 USER root
 
 COPY fix-groups.sh /usr/local/bin/before-notebook.d/fix-groups.sh

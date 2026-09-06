@@ -60,7 +60,9 @@ services:
       - ./analysis-notebook:/home/jovyan/work
       - ./data:/home/jovyan/work/data
     command: 
-        - bash -c "python /home/jovyan/work/pisa_analysis/dataset-download.py && start-notebook.sh --NotebookApp.token= --NotebookApp.password="
+      - bash
+      - -c
+      - "python /home/jovyan/work/pisa_analysis/download-datasets.py && start-notebook.sh --NotebookApp.token= --NotebookApp.password="
     healthcheck:
       test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://localhost:8888')\" || exit 1"]
       interval: 30s
