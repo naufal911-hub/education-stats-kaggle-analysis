@@ -1,0 +1,7 @@
+ALTER TABLE edstats_footnotes ADD CONSTRAINT PK_edstats_footnotes PRIMARY KEY ("CountryCode","SeriesCode");
+
+ALTER TABLE edstats_country_info ADD CONSTRAINT PK_edstats_country_info  PRIMARY KEY ("CountryCode");
+
+ALTER TABLE edstats_uncertainty ADD CONSTRAINT PK_edstats_uncertainty PRIMARY KEY ("CountryCode","SeriesCode","Year");
+
+ALTER TABLE edstats_code_info ADD CONSTRAINT PK_edstats_code_info PRIMARY KEY ("SeriesCode");
