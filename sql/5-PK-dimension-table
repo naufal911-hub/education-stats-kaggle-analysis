@@ -4,4 +4,11 @@ ALTER TABLE edstats_country_info ADD CONSTRAINT PK_edstats_country_info  PRIMARY
 
 ALTER TABLE edstats_uncertainty ADD CONSTRAINT PK_edstats_uncertainty PRIMARY KEY ("CountryCode","SeriesCode","Year");
 
-ALTER TABLE edstats_code_info ADD CONSTRAINT PK_edstats_code_info PRIMARY KEY ("SeriesCode");
+ALTER TABLE edstats_code_info ADD CONSTRAINT PK_edstats_code_info PRIMARY KEY ("SeriesCode")
+
+ALTER TABLE edstats_data
+ADD CONSTRAINT fk_edstats_country
+FOREIGN KEY (country_code)
+REFERENCES edstats_country_info (country_code);
+
+DELETE FROM edstats_data WHERE country_code = 'VGB';;
